@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Bicep/ARM Temporary files
+main.json
+*.arm.json
+
+# Distribution / Build
+dist/
+build/
+*.egg-info/

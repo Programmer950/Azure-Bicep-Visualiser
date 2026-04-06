@@ -1,0 +1,38 @@
+services:
+  # --- BACKEND SERVICE (FastAPI) ---
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: policy-shield-backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    restart: always
+
+  # --- FRONTEND SERVICE (React/Vite) ---
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: policy-shield-frontend
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+networks:
+  default:
+    name: policy-shield-network

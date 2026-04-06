@@ -1,0 +1,12 @@
+# Secrets & Config
+.env
+.env.local
+*.env
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# OS Junk
+.DS_Store
+Thumbs.db
