@@ -10,3 +10,4 @@ docker-compose.override.yml
 # OS Junk
 .DS_Store
 Thumbs.db
+.idea
